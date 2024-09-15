@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Prisma ❤️
 
-## Getting Started
+0. Slide
+- Co je prisma
+- Co dneska ukážeme
 
-First, run the development server:
+1. Install next.js `yarn create next-app ./`
+2. Install Prisma CLI
+   - Prisma CLI je konzolová aplikace (v Rustu) na práci s databází
+   - Tahle věc nemá nic společného s FE
+   - Na webu Prisma.io je super dokumentace
+   - Dev dependency, není potřeba v runtime, může se instalovat globálně
+   - Máte ji tedy na svém počítači, ale je i na serveru, na produkci, kde pak služba poběží
+3. Vytvoříme si databázi
+   - **Musíme ji inicializovat `yarn prisma init`**
+   - Vytvořilo se schéma, to obsahuje konfiguraci a také strukturu databáze...
+   - Nechem pouzívat postgress ale SQLite, to je souborová databáze, ideální pro demo
+   - Máme tu `.env` takhle hezky připravený, tak ho použijeme
+   - Je celkem dobrý nápad mít Extension ve studiu
+   - **Vyrobíme první migraci `yarn prisma migrate dev`**
+   - Prisma umí kromě vytvoření databáze také spustit jednoduché studio...
+4. Data do aplikace
+   - **Musíme vygenerovat Prisma Client** `yarn prisma generate`
+   - Prisma přidala do package.json knihovnu klienta, importujeme ho do appky
+   - **Je to plně otypované !!!**
+   - **Kód toho klienta běží jen na serveru - není to browser kód**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+5. Rozšíříme databázi
+    - Extenze pomáhá, formátuje, validuje občas něco doplní
+    - Prisma umí všechny možné druhy vazeb 1-1 1-m m-m
+    - SQL query skládáme jako JSON
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Uložíme data z aplikace
+    - Prisma běží na serveru, zvolíme si strategii - API/Server komponenty
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+TODO:
+- Poslat slide
